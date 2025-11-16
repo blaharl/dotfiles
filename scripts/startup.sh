@@ -1,7 +1,7 @@
 shopt -s globstar
 shopt -s dotglob
 
-stow -d /nix/persist/home/user/.dotfiles/ -t ~/ files caelestia kitty mpd ncmpcpp qutebrowser Thunar tmux --adopt
+stow -d /nix/persist/home/user/.dotfiles/ -t ~/ files kitty mpd ncmpcpp nvim qutebrowser Thunar tmux --adopt
 
 ln -sfn ~/Persistent/Documents ~/
 ln -sfn ~/Persistent/Documents/Projects ~/
@@ -11,8 +11,4 @@ ln -sfn ~/Persistent/shared ~/
 ln -sfn ~/Persistent/Videos ~/
 
 sleep 1
-# ibus-daemon -drx
-# sleep 1
-# ibus engine hangul
-stow -d /nix/persist/home/user/.dotfiles/ -t ~/ nvim --adopt
 mullvad connect
