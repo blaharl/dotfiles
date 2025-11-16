@@ -1,0 +1,6 @@
+files/
+flake/
+nvim/
+private/
+qutebrowser/.config/qutebrowser/bookmarks/
+qutebrowser/.config/qutebrowser/quickmarks
