@@ -4,3 +4,5 @@ nvim/
 private/
 qutebrowser/.config/qutebrowser/bookmarks/
 qutebrowser/.config/qutebrowser/quickmarks
+ncmpcpp/.config/ncmpcpp/error.log
+hypr/.config/hypr/include/device.conf
