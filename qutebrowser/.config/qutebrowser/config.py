@@ -10,6 +10,16 @@
 #   qute://help/configuring.html
 #   qute://help/settings.html
 
+import catppuccin
+
+# load your autoconfig, use this, if the rest of your config is empty!
+config.load_autoconfig()
+
+# set the flavor you'd like to use
+# valid options are 'mocha', 'macchiato', 'frappe', and 'latte'
+# last argument (optional, default is False): enable the plain look for the menu rows
+catppuccin.setup(c, "mocha", True)
+
 # Change the argument to True to still load settings configured via autoconfig.yml
 config.load_autoconfig(False)
 
@@ -35,7 +45,7 @@ config.load_autoconfig(False)
 #   - no-3rdparty: Accept cookies from the same origin only. This is known to break some sites, such as GMail.
 #   - no-unknown-3rdparty: Accept cookies from the same origin only, unless a cookie is already set for the domain. On QtWebEngine, this is the same as no-3rdparty.
 #   - never: Don't accept cookies at all.
-config.set('content.cookies.accept', 'no-3rdparty', 'chrome-devtools://*')
+config.set("content.cookies.accept", "no-3rdparty", "chrome-devtools://*")
 
 # Which cookies to accept. With QtWebEngine, this setting also controls
 # other features with tracking capabilities similar to those of cookies;
@@ -59,12 +69,12 @@ config.set('content.cookies.accept', 'no-3rdparty', 'chrome-devtools://*')
 #   - no-3rdparty: Accept cookies from the same origin only. This is known to break some sites, such as GMail.
 #   - no-unknown-3rdparty: Accept cookies from the same origin only, unless a cookie is already set for the domain. On QtWebEngine, this is the same as no-3rdparty.
 #   - never: Don't accept cookies at all.
-config.set('content.cookies.accept', 'no-3rdparty', 'devtools://*')
+config.set("content.cookies.accept", "no-3rdparty", "devtools://*")
 
 # Value to send in the `Accept-Language` header. Note that the value
 # read from JavaScript is always the global value.
 # Type: String
-config.set('content.headers.accept_language', '', 'https://matchmaker.krunker.io/*')
+config.set("content.headers.accept_language", "", "https://matchmaker.krunker.io/*")
 
 # User agent to send.  The following placeholders are defined:  *
 # `{os_info}`: Something like "X11; Linux x86_64". * `{webkit_version}`:
@@ -80,7 +90,11 @@ config.set('content.headers.accept_language', '', 'https://matchmaker.krunker.io
 # between 5.12 and 5.14 (inclusive), changing the value exposed to
 # JavaScript requires a restart.
 # Type: FormatString
-config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}) AppleWebKit/{webkit_version} (KHTML, like Gecko) {upstream_browser_key}/{upstream_browser_version} Safari/{webkit_version}', 'https://web.whatsapp.com/')
+config.set(
+    "content.headers.user_agent",
+    "Mozilla/5.0 ({os_info}) AppleWebKit/{webkit_version} (KHTML, like Gecko) {upstream_browser_key}/{upstream_browser_version} Safari/{webkit_version}",
+    "https://web.whatsapp.com/",
+)
 
 # User agent to send.  The following placeholders are defined:  *
 # `{os_info}`: Something like "X11; Linux x86_64". * `{webkit_version}`:
@@ -96,45 +110,56 @@ config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}) AppleWebKit/{w
 # between 5.12 and 5.14 (inclusive), changing the value exposed to
 # JavaScript requires a restart.
 # Type: FormatString
-config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}; rv:133.0) Gecko/20100101 Firefox/133.0', 'https://accounts.google.com/*')
+config.set(
+    "content.headers.user_agent",
+    "Mozilla/5.0 ({os_info}; rv:133.0) Gecko/20100101 Firefox/133.0",
+    "https://accounts.google.com/*",
+)
 
 # Load images automatically in web pages.
 # Type: Bool
-config.set('content.images', True, 'chrome-devtools://*')
+config.set("content.images", True, "chrome-devtools://*")
 
 # Load images automatically in web pages.
 # Type: Bool
-config.set('content.images', True, 'devtools://*')
+config.set("content.images", True, "devtools://*")
 
 # Enable JavaScript.
 # Type: Bool
-config.set('content.javascript.enabled', True, 'chrome-devtools://*')
+config.set("content.javascript.enabled", True, "chrome-devtools://*")
 
 # Enable JavaScript.
 # Type: Bool
-config.set('content.javascript.enabled', True, 'devtools://*')
+config.set("content.javascript.enabled", True, "devtools://*")
 
 # Enable JavaScript.
 # Type: Bool
-config.set('content.javascript.enabled', True, 'chrome://*/*')
+config.set("content.javascript.enabled", True, "chrome://*/*")
 
 # Enable JavaScript.
 # Type: Bool
-config.set('content.javascript.enabled', True, 'qute://*/*')
+config.set("content.javascript.enabled", True, "qute://*/*")
 
 # Allow locally loaded documents to access remote URLs.
 # Type: Bool
-config.set('content.local_content_can_access_remote_urls', True, 'file:///home/user/.local/share/qutebrowser/userscripts/*')
+config.set(
+    "content.local_content_can_access_remote_urls",
+    True,
+    "file:///home/user/.local/share/qutebrowser/userscripts/*",
+)
 
 # Allow locally loaded documents to access other local URLs.
 # Type: Bool
-config.set('content.local_content_can_access_file_urls', False, 'file:///home/user/.local/share/qutebrowser/userscripts/*')
+config.set(
+    "content.local_content_can_access_file_urls",
+    False,
+    "file:///home/user/.local/share/qutebrowser/userscripts/*",
+)
 
-c.editor.command = ['kitty', '-e', 'nvim', '{file}', '-c','normal {line}G{column0}l']
+c.editor.command = ["kitty", "-e", "nvim", "{file}", "-c", "normal {line}G{column0}l"]
 
 
-
-c.content.blocking.method = 'both'
+c.content.blocking.method = "both"
 
 ## In v2.0.0+, one of the following two lines is REQUIRED
 # config.load_autoconfig(False)
@@ -142,8 +167,8 @@ c.content.blocking.method = 'both'
 
 # c.content.autoplay = False
 
-## In v2.0.0+, use next if you use Adblock Plus AND hosts blocking 
-c.content.blocking.method = 'both'
+## In v2.0.0+, use next if you use Adblock Plus AND hosts blocking
+c.content.blocking.method = "both"
 
 # c.content.default_encoding = 'utf-8'
 
@@ -165,16 +190,16 @@ c.content.geolocation = False
 # config.bind(',sm', 'set-cmd-text :download --mhtml')
 
 ## Next works on Windows
-c.downloads.location.directory = '~/Downloads/'
+c.downloads.location.directory = "~/Downloads/"
 
-c.downloads.location.suggestion = 'both'
+c.downloads.location.suggestion = "both"
 
 ## “yank asciidoc-formatted link”
-config.bind(',ya', 'yank inline {url:pretty}[{title}]')
+config.bind(",ya", "yank inline {url:pretty}[{title}]")
 
 ## “yank markdown-formatted link”
 ## ym (without a leading comma) also works because it is built-in
-config.bind(',ym', 'yank inline [{title}]({url:pretty})')
+config.bind(",ym", "yank inline [{title}]({url:pretty})")
 
 ## next is a note to self about how to bind JavaScript code to a key shortcut
 # config.bind(',hw', "jseval alert('Hello World')")
@@ -188,16 +213,16 @@ c.content.dns_prefetch = False
 c.auto_save.session = True
 c.session.lazy_restore = True
 c.content.webgl = False
-c.content.canvas_reading =  False
-c.content.webrtc_ip_handling_policy = 'disable-non-proxied-udp'
+c.content.canvas_reading = False
+c.content.webrtc_ip_handling_policy = "disable-non-proxied-udp"
 
 c.content.blocking.adblock.lists = [
-        "https://easylist.to/easylist/easylist.txt", 
-        "https://easylist.to/easylist/easyprivacy.txt",
-        "https://secure.fanboy.co.nz/fanboy-cookiemonster.txt",
-        "https://secure.fanboy.co.nz/fanboy-annoyance.txt",
-        "https://easylist.to/easylist/fanboy-social.txt",
-        "https://easylist-downloads.adblockplus.org/koreanlist.txt",
-        "https://easylist-downloads.adblockplus.org/easylist.txt",
-        "https://raw.githubusercontent.com/yous/YousList/master/youslist.txt",
-        ]
+    "https://easylist.to/easylist/easylist.txt",
+    "https://easylist.to/easylist/easyprivacy.txt",
+    "https://secure.fanboy.co.nz/fanboy-cookiemonster.txt",
+    "https://secure.fanboy.co.nz/fanboy-annoyance.txt",
+    "https://easylist.to/easylist/fanboy-social.txt",
+    "https://easylist-downloads.adblockplus.org/koreanlist.txt",
+    "https://easylist-downloads.adblockplus.org/easylist.txt",
+    "https://raw.githubusercontent.com/yous/YousList/master/youslist.txt",
+]

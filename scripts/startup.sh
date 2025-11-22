@@ -1,7 +1,7 @@
 shopt -s globstar
 shopt -s dotglob
 
-stow -d /nix/persist/home/user/.dotfiles/ -t ~/ files kitty mpd ncmpcpp nvim qutebrowser Thunar tmux --adopt
+stow -d /nix/persist/home/user/.dotfiles/ -t ~/ files bat cava fcitx5 kitty lazygit lsd mpd ncmpcpp nvim qutebrowser Thunar tmux yazi --adopt
 
 ln -sfn ~/Persistent/Documents ~/
 ln -sfn ~/Persistent/Documents/Projects ~/
