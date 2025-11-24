@@ -1,0 +1,89 @@
+# set editor to neovim
+set editor = "nvim"
+
+set my_name = "pointing"
+set imap_check_subscribed
+
+# Set preffered view modes
+auto_view text/html text/calendar application/ics # view html automatically
+alternative_order text/html text/plain text/enriched text/*
+
+# main options
+set envelope_from
+set edit_headers                     # show headers when composing
+set fast_reply                       # skip to compose when replying
+set askcc                            # ask for CC:
+set fcc_attach                       # save attachments with the body
+set forward_format = "Fwd: %s"       # format of subject when forwarding
+set forward_decode                   # decode when forwarding
+set attribution = "On %d, %n wrote:" # format of quoting header
+set reply_to                         # reply to Reply to: field
+set reverse_name                     # reply as whomever it was to
+set include                          # include message in replies
+set forward_quote                    # include message in forwards
+set text_flowed=yes                  # correct indentation for plain text
+unset mime_forward                   # forward attachments as part of body # set?
+unset help                           # No help bar at the top of index
+# set status_on_top                  # Status bar on top of index
+set tmpdir = ~/.cache/neomutt/temp # where to keep temp files
+
+set move=no                          # dont move messages when marking as read
+set mail_check = 300                 # check for new mail every n seconds
+set imap_keepalive = 900             # 15 minutes
+set sleep_time = 0                   # dont sleep when idle
+set wait_key = no                    # mutt wont ask "press key to continue"
+unset sig_dashes                     # no dashes before sig
+
+unset confirmappend      # don't ask, just do!
+set quit                 # don't ask, just do!!
+unset mark_old           # read/new is good enough for me
+set beep_new             # bell on new mails
+set pipe_decode          # strip headers and eval mimes when piping
+set thorough_search      # strip headers and eval mimes before searching
+set timeout = 0
+
+# status bar, date format, finding stuff etc.
+set status_chars = " *%A"
+set status_format = "[ Folder: %f ] [%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]%>─%?p?( %p postponed )?"
+set date_format = "%d.%m.%Y %H:%M"
+set uncollapse_jump
+set sort = threads
+set sort_re
+set sort_aux = reverse-last-date-received
+# Sort by newest conversation first.
+# set sort = reverse-threads
+# set sort_aux = last-date-received
+# How we reply and quote emails.
+set reply_regexp = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
+set quote_regexp = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
+set send_charset = "utf-8:iso-8859-1:us-ascii"
+set arrow_cursor = "no" # Change `color indicator` depending 
+
+# Pager View Options
+set pager_index_lines = 10  # Shows 10 lines of index when pager is active
+set pager_context = 3 # Show 3 lines of context
+set pager_stop  # stop at end of message
+set menu_scroll # scroll menu
+set tilde # use ~ to pad mutt
+unset markers
+
+#sidebar
+# set sidebar_visible # comment to disable sidebar by default
+set sidebar_short_path
+set sidebar_folder_indent
+set sidebar_format = "%B %* [%?N?%N / ?%S]"
+set mail_check_stats
+
+# needs to install urlscan
+# macro index,pager \cb "<pipe-message> urlscan<Enter>" "call urlscan to extract URLs out of a message"
+# macro attach,compose \cb "<pipe-entry> urlscan<Enter>" "call urlscan to extract URLs out of a message"
+
+# Where to put the stuff
+# link to mailcap file
+set mailcap_path = "~/.config/neomutt/mailcap"
+set header_cache = "~/.cache/mutt/headers"
+set message_cachedir = "~/.cache/mutt/bodies"
+set certificate_file = "~/.cache/mutt/certificates"
+unset record
+
+# set query_command = "khard email --parsable --search-in-source-files '%s'"
