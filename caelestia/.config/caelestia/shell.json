@@ -163,7 +163,7 @@
       "background": false,
       "compact": false,
       "iconSubs": [],
-      "recolour": false
+      "recolour": true
     },
     "workspaces": {
       "activeIndicator": true,
