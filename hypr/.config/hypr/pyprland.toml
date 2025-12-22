@@ -1,0 +1,54 @@
+[pyprland]
+plugins = [
+  "scratchpads",
+  "lost_windows",
+  "monitors",
+  "toggle_dpms",
+  "magnify",
+  "expose",
+  "shift_monitors",
+  "workspaces_follow_focus",
+]
+
+[monitors.placement]
+"Acer".top_center_of = "Sony"
+
+[workspaces_follow_focus]
+max_workspaces = 9
+
+[expose]
+include_special = false
+
+[scratchpads.term]
+animation = "fromTop"
+command = "kitty --class kitty-dropterm"
+class = "kitty-dropterm"
+size = "50% 50%"
+
+[scratchpads.mpc]
+animation = "fromTop"
+command = "kitty --class kitty-mpc rmpc"
+class = "kitty-mpc"
+size = "50% 50%"
+
+[scratchpads.btop]
+animation = "fromLeft"
+command = "kitty --class kitty-btop btop"
+class = "kitty-btop"
+lazy = true
+size = "40% 90%"
+
+[scratchpads.volume]
+animation = "fromRight"
+command = "pavucontrol"
+class = "org.pulseaudio.pavucontrol"
+lazy = true
+size = "40% 90%"
+unfocus = "hide"
+
+[scratchpads.dict]
+animation = "fromRight"
+command = "goldendict"
+class = "goldendict"
+lazy = true
+size = "40% 90%"
