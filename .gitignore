@@ -8,3 +8,5 @@ ncmpcpp/.config/ncmpcpp/error.log
 hypr/.config/hypr/include/device.conf
 qutebrowser/.config/qutebrowser/catppuccin/__pycache__
 neomutt/.config/neomutt/accounts
+atuin/.local/
+atuin/.local_hidden_message
