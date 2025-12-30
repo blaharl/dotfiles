@@ -10,3 +10,5 @@ qutebrowser/.config/qutebrowser/catppuccin/__pycache__
 neomutt/.config/neomutt/accounts
 atuin/.local/
 atuin/.local_hidden_message
+newsboat/.local/
+newsboat/.config/newsboat/urls
