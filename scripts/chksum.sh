@@ -4,9 +4,9 @@ case "$1" in
     for j in $(find . -mindepth 1 -maxdepth 1 -type d)
     do
       i=${j/.\//} 
-      cd $i
+      cd -- $i
       echo -n "$(pwd)/ "
-      chksum=($(find . -type f -exec md5sum {} + | LC_ALL=C sort | md5sum))
+      chksum=($(find . -type f -exec md5sum -- {} + | LC_ALL=C sort | md5sum))
       chksum=($(echo $chksum | sed 's/\s.*//'))
       echo $chksum
       cd ..
@@ -17,7 +17,7 @@ case "$1" in
     do
       i=${j/.\//} 
       echo -n "$(pwd)/$i "
-      chksum=($(md5sum $i))
+      chksum=($(md5sum -- $i))
       chksum=($(echo $chksum | sed 's/\s.*//'))
       echo $chksum
       (echo "$(pwd)/$i $chksum") >> ~/chksum.log
@@ -25,7 +25,7 @@ case "$1" in
     ;;
 
   "f" | "full")
-    chksum=($(find . -type f -exec md5sum {} + | LC_ALL=C sort | md5sum))
+    chksum=($(find . -type f -exec md5sum -- {} + | LC_ALL=C sort | md5sum))
     chksum=($(echo $chksum | sed 's/\s.*//'))
     echo "$(pwd) $chksum"
     (echo "$(pwd) $chksum") >> ~/chksum.log
