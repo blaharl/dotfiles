@@ -129,6 +129,8 @@ history_filter = [
   "^exit$",
   "^fastfetch",
   "^fish$",
+  "^flake$",
+  "^flake ",
   "^jjui",
   "^l ",
   "^l$",
