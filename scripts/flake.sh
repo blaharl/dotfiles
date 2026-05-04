@@ -6,6 +6,9 @@ case $m in
   "b" | "boot")
     sudo nixos-rebuild boot --flake /home/user/.dotfiles/flake#$host --impure
     ;;
+  "t" | "trace")
+    sudo nixos-rebuild boot --flake /home/user/.dotfiles/flake#$host --impure --show-trace
+    ;;
   "s" | "switch")
     sudo nixos-rebuild switch --flake /home/user/.dotfiles/flake#$host --impure
     ;;
