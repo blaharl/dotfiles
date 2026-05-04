@@ -52,9 +52,8 @@ bind editor ^T complete
 #     "add the sender email address to khard"
 
 ## Shortcuts
-macro index,pager <f2> '<sync-mailbox><enter-command>source ~/.config/neomutt/accounts/gmail<enter><change-folder>!<enter>'
-macro index,pager <f3> '<sync-mailbox><enter-command>source ~/.config/neomutt/accounts/main<enter><change-folder>!<enter>'
-macro index,pager <f4> '<sync-mailbox><enter-command>source ~/.config/neomutt/accounts/school<enter><change-folder>!<enter>'
+macro index,pager <f2> '<sync-mailbox><enter-command>source ~/.config/neomutt/accounts/cock<enter><change-folder>!<enter>'
+macro index,pager <f3> '<sync-mailbox><enter-command>source ~/.config/neomutt/accounts/disroot<enter><change-folder>!<enter>'
 
 # save attachments to a folder
 macro attach s '<save-entry> <bol>~/Documents/attachments/<eol>' 'save attachment'
