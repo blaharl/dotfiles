@@ -134,6 +134,7 @@ history_filter = [
   "^jjui",
   "^l ",
   "^l$",
+  "^lazygit",
   "^ls ",
   "^ls$",
   "^lsd ",
