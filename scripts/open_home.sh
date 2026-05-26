@@ -4,4 +4,4 @@ sleep 1
 mullvad connect
 sleep 1
 mullvad reconnect
-caelestia shell idleInhibitor enable
+dms ipc inhibit enable
