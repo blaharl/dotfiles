@@ -164,7 +164,7 @@ history_filter = [
   "^vpnloc$",
   "^vpnoff",
   "^vpnon",
-  "^yy$",
+  "^y$",
   "^yazi$",
   "^ydl ",
   "^z ",
