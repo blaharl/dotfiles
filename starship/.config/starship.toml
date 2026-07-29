@@ -19,6 +19,7 @@ palette = "cool"
 format = """
 [](red)\
 $python\
+$hostname\
 $username\
 [](bg:peach fg:red)\
 $directory\
@@ -47,6 +48,14 @@ command_timeout = 5000
 # Disable the blank line at the start of the prompt
 # add_newline = false
 
+[hostname]
+ssh_only = true
+ssh_symbol = '🌐'
+trim_at = '.'
+style = "bg:red fg:crust"
+format = '[$ssh_symbol $hostname ]($style)'
+disabled = false
+
 # You can also replace your username with a neat symbol like  to save some space
 [username]
 show_always = true
@@ -57,6 +66,7 @@ format = '[$user ]($style)'
 [directory]
 style = "bg:peach fg:crust"
 format = "[ $path ]($style)"
+# format = "[$path]($style)[$lock_symbol]($lock_style)"
 truncation_length = 3
 truncation_symbol = "…/"
 
@@ -123,6 +133,8 @@ jj log --revisions @ --no-graph --ignore-working-copy --color always --limit 1 -
 # into format: https://starship.rs/config/#default-prompt-format
 [git_status]
 disabled = true
+# style = "bg:yellow"
+# format = '[[($all_status$ahead_behind )](fg:crust bg:yellow)]($style)'
 
 [custom.git_status]
 when = "! jj --ignore-working-copy root"
@@ -133,6 +145,8 @@ format = '[[($all_status$ahead_behind )](fg:crust bg:yellow)]($style)'
 
 [git_commit]
 disabled = true
+# commit_hash_length = 8
+# style = "bold white"
 
 [custom.git_commit]
 when = "! jj --ignore-working-copy root && git -C . rev-parse"
@@ -151,6 +165,9 @@ style = "bg:yellow"
 
 [git_branch]
 disabled = true
+# symbol = ""
+# style = "bg:yellow"
+# format = '[[ $symbol $branch ](fg:crust bg:yellow)]($style)'
 
 [custom.git_branch]
 when = "! jj --ignore-working-copy root && git -C . rev-parse"
@@ -159,15 +176,6 @@ description = "Only show git_branch if we're not in a jj repo"
 style = "bg:yellow"
 symbol = ""
 format = '[[ $symbol $branch ](fg:crust bg:yellow)]($style)'
-
-# [git_branch]
-# symbol = ""
-# style = "bg:yellow"
-# format = '[[ $symbol $branch ](fg:crust bg:yellow)]($style)'
-#
-# [git_status]
-# style = "bg:yellow"
-# format = '[[($all_status$ahead_behind )](fg:crust bg:yellow)]($style)'
 
 [golang]
 symbol = " "
@@ -200,8 +208,9 @@ style = "bg:green"
 format = '[ $symbol ($version) ]($style)'
 
 [python]
-style = "bg:green"
+style = "bg:red"
 format = '[(\($virtualenv\) )]($style)'
+# format = "[$symbol$version]($style) "
 
 [rust]
 symbol = ""
@@ -214,11 +223,6 @@ time_format = "%R" # Hour:Minute Format
 style = "bg:lavender"
 format = '[[  $time ](fg:crust bg:lavender)]($style)'
 
-# [battery]
-# full_symbol = "🔋"
-# charging_symbol = "🔌"
-# discharging_symbol = "⚡"
-#
 # [[battery.display]]
 # threshold = 30
 # style = "bold red"
@@ -230,37 +234,8 @@ format = '[[  $time ](fg:crust bg:lavender)]($style)'
 # min_time = 10_000  # Show command duration over 10,000 milliseconds (=10 sec)
 # format = " took [$duration]($style)"
 #
-# [directory]
-# truncation_length = 5
-# format = "[$path]($style)[$lock_symbol]($lock_style)"
-#
-# [git_commit]
-# commit_hash_length = 8
-# style = "bold white"
-#
 # [git_state]
 # format = '[\($state( $progress_current of $progress_total)\)]($style) '
-#
-# [git_status]
-# conflicted = "⚔️ "
-# ahead = "🏎️ 💨 ×${count} "
-# behind = "🐢 ×${count} "
-# diverged = "🔱 🏎️ 💨 ×${ahead_count} 🐢 ×${behind_count} "
-# untracked = "🛤️  ×${count} "
-# stashed = "📦 "
-# modified = "📝 ×${count} "
-# staged = "🗃️  ×${count} "
-# renamed = "📛 ×${count} "
-# deleted = "🗑️  ×${count} "
-# style = "bright-white"
-# format = "$all_status$ahead_behind"
-#
-# [hostname]
-# ssh_only = false
-# format = "<[$hostname]($style)>"
-# trim_at = "-"
-# style = "bold dimmed white"
-# disabled = true
 #
 # [julia]
 # format = "[$symbol$version]($style) "
@@ -276,46 +251,19 @@ format = '[[  $time ](fg:crust bg:lavender)]($style)'
 # [package]
 # disabled = true
 #
-# [python]
-# format = "[$symbol$version]($style) "
-# style = "bold green"
-#
 # [typst]
 # format = "[$symbol($version)]($style)"
 # style = "bold #239dae"
 #
-# [time]
-# time_format = "%T"
-# format = "🕙 $time($style) "
-# style = "bright-white"
-# disabled = false
-
 # format = """
 # [](#2C3E50)\
 # $os\
-# $username\
-# $hostname\
 # [](bg:#F1C40F fg:#2C3E50)\
-# $directory\
 # [](fg:#F1C40F bg:#3498DB)\
-# $git_branch\
-# $git_status\
 # [](fg:#3498DB bg:#2ECC71)\
-# $c\
-# $elixir\
-# $elm\
-# $golang\
-# $haskell\
-# $java\
-# $julia\
-# $nodejs\
-# $nim\
-# $rust\
 # $scala\
-# $python\
 # $rlang\
 # [](fg:#2ECC71 bg:#F8EFE0)\
-# $docker_context\
 # [](fg:#F8EFE0 bg:#EC8FD0)\
 # $conda\
 # [ ](fg:#EC8FD0)\
@@ -337,14 +285,6 @@ format = '[[  $time ](fg:crust bg:lavender)]($style)'
 # # Disable the blank line at the start of the prompt
 # #add_newline = false
 #
-# [hostname]
-# ssh_only = true
-# ssh_symbol = '🌐'
-# trim_at = '.'
-# style = 'bg:#2C3E50'
-# format = '[$ssh_symbol $hostname]($style)'
-# disabled = false
-#
 # # An alternative to the username module which displays a symbol that
 # # represents the current operating system
 # [os]
@@ -356,12 +296,6 @@ format = '[[  $time ](fg:crust bg:lavender)]($style)'
 # style = 'bg:#EC8FD0 fg:#2C3E50'
 # format = '[ $symbol $environment ]($style)'
 # ignore_base = false
-#
-# [git_branch]
-# symbol = ''
-# style = 'bg:#3498DB fg:#2C3E50'
-# format = '[ $symbol $branch ]($style)'
-
 
 [palettes.catppuccin_mocha]
 rosewater = "#f5e0dc"
