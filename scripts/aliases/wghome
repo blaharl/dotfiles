@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+case "$1" in
+  "up" | "on")
+    sudo wg-quick up ~/.dotfiles/private/wg_home.conf
+    ;;
+  "down" | "off")
+    sudo wg-quick down ~/.dotfiles/private/wg_home.conf
+    ;;
+esac

@@ -173,6 +173,7 @@ history_filter = [
   "^y$",
   "^yazi$",
   "^ydl ",
+  "^ydls ",
   "^z ",
   "^z$",
   "^zi ",

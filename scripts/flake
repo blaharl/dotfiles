@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+m="$1"
+case $m in
+  "b" | "boot")
+    sudo nixos-rebuild boot --flake /home/user/.dotfiles/flake#$NIXOS_HOST --impure
+    ;;
+  "t" | "trace")
+    sudo nixos-rebuild boot --flake /home/user/.dotfiles/flake#$NIXOS_HOST --impure --show-trace
+    ;;
+  "s" | "switch")
+    sudo nixos-rebuild switch --flake /home/user/.dotfiles/flake#$NIXOS_HOST --impure
+    ;;
+  "u" | "update")
+    cd ~/.dotfiles/flake; nix flake update
+    ;;
+  "g" | "gc")
+    sudo nix-collect-garbage -d; nix-collect-garbage -d;
+    ;;
+  "gd" | "gcd")
+    nix-collect-garbage --delete-older-than "$2"d; sudo nix-collect-garbage --delete-older-than "$2"d
+    ;;
+esac

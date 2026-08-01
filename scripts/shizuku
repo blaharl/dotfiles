@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+adb shell /data/app/~~xRLFVsE7GO5RA1EBnl0B1g==/moe.shizuku.privileged.api--lXePlgZQxJGueiHbu5pbw==/lib/arm64/libshizuku.so

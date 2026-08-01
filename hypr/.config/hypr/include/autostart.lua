@@ -8,9 +8,8 @@
 -- Or execute your favorite apps at launch like this:
 
 hl.on("hyprland.start", function()
-	hl.exec_cmd("bash ~/.dotfiles/scripts/startup_hyprland.sh")
 	hl.exec_cmd("brightnessctl set 25%")
-	hl.exec_cmd("bash ~/.dotfiles/scripts/startup.sh")
+	hl.exec_cmd("bash ~/.dotfiles/scripts/startup")
 	hl.exec_cmd("systemctl start --user polkit-gnome-authentication-agent-1")
 	hl.exec_cmd("mpd")
 	hl.exec_cmd("mpDris2")
