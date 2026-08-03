@@ -47,6 +47,10 @@ hl.config({
 		repeat_delay = 300, -- delay before held down key is repeated
 		repeat_rate = 50, -- key per second
 	},
+
+	xwayland = {
+		force_zero_scaling = true,
+	},
 })
 
 hl.gesture({
@@ -61,12 +65,6 @@ hl.device({
 	name = "epic-mouse-v1",
 	sensitivity = -0.5,
 })
-
-
--- xwayland {
---   force_zero_scaling = true
--- }
-
 
 -- This is an example Hyprland Lua config file.
 -- Refer to the wiki for more information.
