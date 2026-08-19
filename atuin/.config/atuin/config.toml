@@ -114,6 +114,7 @@
 ## https://docs.rs/regex/latest/regex/#syntax
 history_filter = [
   "^..$",
+  "^./",
   "^asd ",
   "^ase ",
   "^asg ",
@@ -126,6 +127,9 @@ history_filter = [
   "^cargo run",
   "^cat ",
   "^cd ",
+  "^chmod ",
+  "^clear$",
+  "^cp ",
   "^dict ",
   "^exit$",
   "^fastfetch",
@@ -135,6 +139,7 @@ history_filter = [
   "^flake ",
   "^go mod ",
   "^go run ",
+  "^jj git ",
   "^jjui",
   "^l ",
   "^l$",
@@ -145,22 +150,29 @@ history_filter = [
   "^lsd$",
   "^man ",
   "^mdl ",
+  "^mkdir ",
   "^mpv ",
+  "^mv ",
   "^ncmpcpp",
   "^neomutt",
   "^newsboat",
   "^nu$",
   "^nvim",
+  "^po ",
   "^posting",
   "^q$",
   "^qalc$",
   "^qalc ",
   "^reboot$",
   "^rg ",
+  "^rm ",
   "^rmpc$",
   "^sdcv ",
   "^sdcv$",
   "^sh$",
+  "^sudo cp ",
+  "^sudo mv ",
+  "^sudo rm ",
   "^tldr ",
   "^tmux ",
   "^tmux$",
@@ -352,3 +364,8 @@ records = true
 ## The "workspace" mode is skipped when not in a workspace or workspaces = false.
 ## Default filter mode can be overridden with the filter_mode setting.
 # filters = [ "global", "host", "session", "session-preload", "workspace", "directory" ]
+
+[tmux]
+enabled = true
+width = "80%"
+height = "60%"
