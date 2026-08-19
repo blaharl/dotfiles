@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+listfile="$1"
+tmpfile=$(mktemp)
+shopt -s nullglob
+
+while IFS= read -r line; do
+  [ -z "$line" ] && { echo >> "$tmpfile"; continue; }
+  found=false
+  for ext in mkv mp4 webm; do
+    for f in *"${line}"*.${ext}; do
+      found=true
+      break
+    done
+    $found && break
+  done
+  $found || echo "$line" >> "$tmpfile"
+done < "$listfile"
+
+shopt -u nullglob
+mv "$tmpfile" "$listfile"

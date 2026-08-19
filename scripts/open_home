@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-sudo nft -f ~/.dotfiles/scripts/excludeTraffic.rules
+sudo nft -f ~/.dotfiles/conf/excludeTraffic.rules
 sleep 1
 mullvad connect
 sleep 1

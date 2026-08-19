@@ -1,0 +1,74 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# 2-letter -> ISO 639-2 (mp4 muxer rejects 2-letter codes)
+lang3() {
+  case "$1" in
+    en) echo eng ;;  de) echo ger ;;  fr) echo fre ;;  es) echo spa ;;
+    it) echo ita ;;  pt) echo por ;;  ru) echo rus ;;  ja) echo jpn ;;
+    ko) echo kor ;;  zh) echo chi ;;  nl) echo dut ;;  sv) echo swe ;;
+    no) echo nor ;;  da) echo dan ;;  fi) echo fin ;;  pl) echo pol ;;
+    cs) echo ces ;;  sk) echo slo ;;  hu) echo hun ;;  ro) echo ron ;;
+    el) echo ell ;;  tr) echo tur ;;  ar) echo ara ;;  he) echo heb ;;
+    hi) echo hin ;;  th) echo tha ;;  vi) echo vie ;;  id) echo ind ;;
+    uk) echo ukr ;;  bg) echo bul ;;  sr) echo srp ;;  hr) echo hrv ;;
+    sl) echo slv ;;  lt) echo lit ;;  lv) echo lav ;;  et) echo est ;;
+    is) echo isl ;;  fa) echo fas ;;  bn) echo ben ;;  ta) echo tam ;;
+       *) echo "$1" ;;
+  esac
+}
+
+if [[ $# -eq 0 ]]; then
+  echo "Usage: $(basename "$0") <video.(mp4|webm|mkv)> [more videos...]" >&2
+  exit 1
+fi
+
+for input in "$@"; do
+  [[ -f "$input" ]] || { echo "Not found: $input" >&2; continue; }
+
+  name="${input%.*}"
+  ext="${input##*.}"
+  ext="${ext,,}"
+
+  case "$ext" in
+    mp4)  subcodec=mov_text ;;
+    webm) subcodec=webvtt ;;
+    mkv)  subcodec=srt ;;
+    vtt) continue ;;
+    *)    echo "Skipping $input: unsupported extension .$ext" >&2; continue ;;
+  esac
+
+  shopt -s nullglob
+  subs=("$name".*.vtt)
+  shopt -u nullglob
+
+  if [[ ${#subs[@]} -eq 0 ]]; then
+    echo "Skipping $input: no $name.*.vtt found" >&2
+    continue
+  fi
+
+  langs=()
+  for s in "${subs[@]}"; do
+    lang="${s#"$name."}"
+    langs+=("$(lang3 "${lang%.vtt}")")
+  done
+
+  cmd=(ffmpeg -y -loglevel error -i "$input")
+  for s in "${subs[@]}"; do cmd+=(-i "$s"); done
+
+  cmd+=(-map 0)
+  for i in "${!subs[@]}"; do cmd+=(-map "$((i + 1))"); done
+  cmd+=(-c copy -c:s "$subcodec")
+  for i in "${!subs[@]}"; do cmd+=("-metadata:s:s:$i" "language=${langs[$i]}"); done
+
+  tmp="$name.tmp.$ext"
+  if "${cmd[@]}" "$tmp"; then
+    mv -f "$tmp" "$input"
+    rm -f "${subs[@]}"
+    echo "OK: embedded ${#subs[@]} sub(s) into $input"
+  else
+    rm -f "$tmp"
+    echo "FAILED: $input" >&2
+    exit 1
+  fi
+done
