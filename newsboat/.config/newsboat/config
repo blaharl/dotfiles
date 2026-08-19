@@ -32,8 +32,7 @@ color article white default bold
 browser qutebrowser
 macro , open-in-browser
 macro a set browser "yt-dlp --embed-metadata -xic -f bestaudio/best --restrict-filenames" ; open-in-browser ; set browser qutebrowser
-macro y set browser "yt-dlp" ; open-in-browser ; set browser qutebrowser
-macro s set browser "yt-dlp --write-subs --write-auto-subs --sub-langs en" ; open-in-browser ; set browser qutebrowser
+macro y set browser "ydl" ; open-in-browser ; set browser qutebrowser
 macro v set browser "setsid -f mpv" ; open-in-browser ; set browser qutebrowser
 macro w set browser "librewolf" ; open-in-browser ; set browser qutebrowser
 macro W set browser "w3m" ; open-in-browser ; set browser qutebrowser
