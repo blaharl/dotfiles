@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+OUT="$(mktemp)"
+
+rustc -o "$OUT" "$@"
+trap 'rm -f "$OUT"' EXIT
+
+"$OUT"
