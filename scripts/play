@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+if [[ $# -ne 1 ]]; then
+    echo "Usage: $0 <filename>" >&2
+    exit 1
+fi
+
+pattern=$1
+
+if command -v fd >/dev/null 2>&1; then
+    FD=fd
+elif command -v fdfind >/dev/null 2>&1; then
+    FD=fdfind
+else
+    echo "error: neither 'fd' nor 'fdfind' found in PATH" >&2
+    exit 1
+fi
+
+matches=$(mktemp)
+trap 'rm -f "$matches"' EXIT
+
+"$FD" --type f --absolute-path "$pattern" >"$matches"
+
+if [[ ! -s "$matches" ]]; then
+    echo "No files matching '$pattern'" >&2
+    exit 1
+fi
+
+echo "Playing $(wc -l <"$matches") file(s)..."
+xargs -d '\n' -a "$matches" mpv --
