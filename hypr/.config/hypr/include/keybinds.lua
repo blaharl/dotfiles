@@ -68,6 +68,11 @@ hl.bind(mainMod .. " + mouse_down", dsp.focus({ workspace = "e+1" }))
 hl.bind(mainMod .. " + mouse_up", dsp.focus({ workspace = "e-1" }))
 hl.bind(mainMod .. " + CTRL + mouse_down", dsp.window.move({ workspace = "e+1" }))
 hl.bind(mainMod .. " + CTRL + mouse_up", dsp.window.move({ workspace = "e-1" }))
+
+hl.bind(mainMod .. " + SHIFT + H", dsp.window.move({ direction = "left" }))
+hl.bind(mainMod .. " + SHIFT + J", dsp.window.move({ direction = "down" }))
+hl.bind(mainMod .. " + SHIFT + K", dsp.window.move({ direction = "up" }))
+hl.bind(mainMod .. " + SHIFT + L", dsp.window.move({ direction = "right" }))
 --
 -- -- Move/resize windows with mainMod + LMB/RMB and dragging
 hl.bind(mainMod .. " + mouse:272", dsp.window.drag(), { mouse = true })
