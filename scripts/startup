@@ -2,7 +2,7 @@
 shopt -s globstar
 shopt -s dotglob
 
-stow -d /nix/persist/home/user/.dotfiles/ -t ~/ files atuin bat cava fcitx5 keepassxc kitty lazygit lsd mpd mpv ncmpcpp neomutt newsboat nvim pypr qutebrowser rmpc starship Thunar tmux yazi --adopt
+stow -d /nix/persist/home/user/.dotfiles/ -t ~/ files atuin bat cava fcitx5 keepassxc kitty lazygit lsd mpd mpv ncmpcpp neomutt newsboat nvim pypr qutebrowser rmpc sioyek starship Thunar tmux yazi --adopt
 
 sleep 1
 mullvad connect
