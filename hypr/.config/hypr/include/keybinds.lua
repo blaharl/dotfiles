@@ -155,7 +155,7 @@ hl.bind("ALT + SHIFT + 5", dsp.exec_cmd("bash ~/.dotfiles/scripts/ss.sh region-e
 hl.bind("ALT + SHIFT + Escape", dsp.exec_cmd("pypr toggle_dpms"))
 hl.bind("ALT + SHIFT + Z", dsp.exec_cmd("pypr zoom"))
 hl.bind("ALT + SHIFT + O", dsp.exec_cmd("pypr shift_monitors +1"))
-hl.bind("ALT + SHIFT + E", dsp.exec_cmd("pypr expose"))
+hl.bind("ALT + SHIFT + X", dsp.exec_cmd("pypr expose"))
 hl.bind("ALT + SHIFT + K", dsp.exec_cmd("pypr change_workspace +1"))
 hl.bind("ALT + SHIFT + J", dsp.exec_cmd("pypr change_workspace -1"))
 hl.bind("ALT + SHIFT + C", dsp.exec_cmd("pypr toggle term"))
@@ -167,6 +167,8 @@ hl.bind("ALT + SHIFT + V", dsp.exec_cmd("pypr toggle volume"))
 hl.bind(mainMod .. " + SHIFT + P", dsp.dpms())
 
 hl.bind("ALT + SHIFT + P", dsp.exec_cmd("passmenu"))
+
+hl.bind("ALT + SHIFT + E", dsp.exec_cmd("emacsclient -c -a \"emacs\""))
 
 hl.bind("SHIFT + XF86MonBrightnessDown", dsp.exec_cmd("sleep 1 && hyprctl dispatch dpms off eDP-1"))
 hl.bind("SHIFT + XF86MonBrightnessUp", dsp.exec_cmd("sleep 1 && hyprctl dispatch dpms on eDP-1"))

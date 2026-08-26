@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+emacsclient -e "(kill-emacs)"
+doom sync
+setsid emacs --daemon

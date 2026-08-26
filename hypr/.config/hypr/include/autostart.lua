@@ -17,6 +17,7 @@ hl.on("hyprland.start", function()
 	-- ibus-daemon -drx
 	hl.exec_cmd("fcitx5 -d -r")
 	hl.exec_cmd("dms run")
+	hl.exec_cmd("emacs --daemon")
 end)
 
 -------------------------------
