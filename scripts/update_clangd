@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 file=~/.clangd
 echo "CompileFlags:" > $file
 echo "  Add:" >> $file
