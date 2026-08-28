@@ -1,3 +1,5 @@
+include ~/.config/newsboat/dark
+
 #show-read-feeds no
 auto-reload yes
 
