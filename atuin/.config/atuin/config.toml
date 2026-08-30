@@ -158,7 +158,6 @@ history_filter = [
   "^mv ",
   "^ncmpcpp",
   "^neomutt",
-  "^newsboat",
   "^nu$",
   "^nvim",
   "^pdf ",
