@@ -133,6 +133,7 @@ history_filter = [
   "^dict ",
   "^doom ",
   "^ds$",
+  "^dsh$",
   "^emacs",
   "^exit$",
   "^fastfetch",
