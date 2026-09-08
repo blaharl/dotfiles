@@ -45,10 +45,3 @@ class = "org.pulseaudio.pavucontrol"
 lazy = true
 size = "40% 90%"
 unfocus = "hide"
-
-[scratchpads.dict]
-animation = "fromRight"
-command = "goldendict"
-class = "goldendict"
-lazy = true
-size = "40% 90%"
