@@ -13,7 +13,7 @@ hl.bind(mainMod .. " + C", dsp.exec_cmd(terminal))
 local closeWindowBind = hl.bind(mainMod .. " + Q", dsp.window.close())
 closeWindowBind:set_enabled(true)
 
-hl.bind(mainMod .. " + space", dsp.exec_cmd(dic .. "spotlight toggle"))
+hl.bind(mainMod .. " + space", dsp.exec_cmd(dic .. "spotlight-bar toggle"))
 hl.bind("ALT + SHIFT + semicolon", dsp.exec_cmd(dic .. "lock lock"))
 hl.bind(mainMod .. " + CTRL + V", dsp.exec_cmd(dic .. "clipboard toggle"))
 hl.bind(mainMod .. " + M", dsp.exec_cmd(dic .. "processlist focusOrToggle")) -- TODO: float
