@@ -1,9 +1,7 @@
 {
   "cornerRadius": 12,
   "windSpeedUnit": "ms",
-  "nightModeEnabled": false,
   "barElevationEnabled": false,
-  "batteryPillPercentSign": false,
   "controlCenterShowMicPercent": true,
   "appIdSubstitutions": [],
   "cursorSettings": {
@@ -26,8 +24,6 @@
   "acLockTimeout": 600,
   "acSuspendTimeout": 1200,
   "lockBeforeSuspend": true,
-  "gtkThemingEnabled": false,
-  "qtThemingEnabled": false,
   "osdPowerProfileEnabled": true,
   "barConfigs": [
     {
@@ -104,11 +100,36 @@
       "clickThrough": false
     }
   ],
+  "desktopClockCustomColor": {
+    "r": 1,
+    "g": 1,
+    "b": 1,
+    "a": 1,
+    "hsvHue": -1,
+    "hsvSaturation": 0,
+    "hsvValue": 1,
+    "hslHue": -1,
+    "hslSaturation": 0,
+    "hslLightness": 1,
+    "valid": true
+  },
+  "systemMonitorCustomColor": {
+    "r": 1,
+    "g": 1,
+    "b": 1,
+    "a": 1,
+    "hsvHue": -1,
+    "hsvSaturation": 0,
+    "hsvValue": 1,
+    "hslHue": -1,
+    "hslSaturation": 0,
+    "hslLightness": 1,
+    "valid": true
+  },
   "builtInPluginSettings": {
     "dms_settings_search": {
       "trigger": "?"
     }
   },
-  "configVersion": 17,
-  "closeNiriOverviewOnWindowFocus": true
+  "configVersion": 18
 }
