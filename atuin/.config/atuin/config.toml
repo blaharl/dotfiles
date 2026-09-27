@@ -193,6 +193,7 @@ history_filter = [
   "^yazi$",
   "^ydl ",
   "^ydls ",
+  "^yt-dlp ",
   "^z ",
   "^z$",
   "^zi ",
