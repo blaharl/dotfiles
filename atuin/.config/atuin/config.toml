@@ -129,6 +129,7 @@ history_filter = [
   "^cd ",
   "^chmod ",
   "^clear$",
+  "^concord$",
   "^cp ",
   "^dict ",
   "^doom ",
