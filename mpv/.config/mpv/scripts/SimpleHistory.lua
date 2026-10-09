@@ -1970,6 +1970,15 @@ function history_blacklist_check()
 		invertable_return = {false, true} 
 		blacklist_msg = 'File was added to history because of whitelist'
 	end
+
+	local normalized_path = filePath:gsub('\\', '/')
+	for i = 1, #o.history_blacklist do
+		local directory = o.history_blacklist[i]:gsub('\\', '/'):match('^%*%*/([^/]+)/%*$')
+		if directory and ('/' .. normalized_path:gsub('^/', '') .. '/'):lower():find('/' .. directory:lower() .. '/', 1, true) then
+			msg.info(blacklist_msg)
+			return invertable_return[1]
+		end
+	end
 	
 	if has_value(o.history_blacklist, filePath, nil) then
 		msg.info(blacklist_msg)
