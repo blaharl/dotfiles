@@ -1,4 +1,9 @@
 **/.cargo/
+**/.devenv/
+**/Steam/config/htmlcache/
+**/Steam/depotcache/
+**/Steam/logs/
+**/Steam/package/
 **/doom/profiles.el
 **/doom/profiles.elc
 **/emacs/.local/cache/
