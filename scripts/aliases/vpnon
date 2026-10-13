@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
+mullvad lockdown-mode set on
 mullvad connect; mullvad reconnect
