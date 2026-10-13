@@ -21,3 +21,6 @@ theme:
 
 authorColors:
   '*': '#b4befe'
+
+git:
+  autoFetch: false
