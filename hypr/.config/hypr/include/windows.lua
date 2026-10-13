@@ -58,6 +58,13 @@ hl.window_rule({
 })
 
 hl.window_rule({
+	name = "dropterm",
+	match = { class = "kitty-dropterm" },
+	opacity = 0.7,
+	float = true,
+})
+
+hl.window_rule({
 	name = "xdg portal",
 	match = { class = "xdg-desktop-portal-gtk" },
 	opacity = 0.8,
@@ -90,7 +97,7 @@ hl.window_rule({
 
 hl.window_rule({
 	name = "tools",
-	match = { class = "(GoldenDict-ng|net.lutris.Lutris|org.qbittorrent.qBittorrent|peazip)" },
+	match = { class = "(GoldenDict-ng|net.lutris.Lutris|peazip)" },
 	float = true,
 })
 
